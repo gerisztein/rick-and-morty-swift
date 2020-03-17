@@ -16,7 +16,8 @@ final class ListRouter {
   }
 
   func show(character: CharacterModel) {
-    let viewController = CharacterViewController(character: character)
+    let viewModel = CharacterViewModel(character: character)
+    let viewController = CharacterViewController(viewModel: viewModel)
     navigationController?.pushViewController(viewController, animated: true)
   }
 }

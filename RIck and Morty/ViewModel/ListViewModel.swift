@@ -10,7 +10,7 @@ import Foundation
 
 class ListViewModel {
 
-  private (set) var dataSource: [CharacterCellViewModel] = []
+  private (set) var dataSource: [CharacterCellViewState] = []
   private var characters: [CharacterModel] = []
   private var currentPage = 1
   private let router: ListRouter
@@ -24,7 +24,7 @@ class ListViewModel {
   func getCharacterList(_ completionHandler: @escaping () -> Void) {
     networkManager.fetchData(page: currentPage, completionHandler: { characters in
       self.characters += characters
-      self.dataSource += characters.map(CharacterConverter.convert)
+      self.dataSource += characters.map(CharacterConverter.convertToCell)
       self.currentPage += 1
 
       DispatchQueue.main.async {
