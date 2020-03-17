@@ -31,8 +31,10 @@ class NetworkManager {
         do {
           let results = try decoder.decode(Results.self, from: data)
           self.hasNextPage = results.info.next != ""
-          
-          completionHandler(results.results)
+
+          DispatchQueue.main.async {
+            completionHandler(results.results)
+          }
         } catch {
           print("Error decoding data. \(error)")
         }

@@ -27,9 +27,7 @@ class ListViewModel {
       self.dataSource += characters.map(CharacterConverter.convertToCell)
       self.currentPage += 1
 
-      DispatchQueue.main.async {
-        completionHandler()
-      }
+      completionHandler()
     })
   }
 
