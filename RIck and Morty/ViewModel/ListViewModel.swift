@@ -9,20 +9,23 @@
 import Foundation
 
 class ListViewModel {
-  
-  var networkManager = NetworkManager()
-  var characterList: [CharacterModel] = [CharacterModel]()
-  var currentPage = 1
-  var currentCount: Int {
-    return characterList.count
+
+  var characterList: [CharacterModel] = []
+  private var currentPage = 1
+  private let networkManager: NetworkManager
+
+  init(networkManager: NetworkManager = NetworkManager()) {
+    self.networkManager = networkManager
   }
 
   func getCharacterList(_ completionHandler: @escaping () -> Void) {
     networkManager.fetchData(page: currentPage, completionHandler: { characters in
       self.characterList.append(contentsOf: characters)
       self.currentPage += 1
-      
-      completionHandler()
+
+      DispatchQueue.main.async {
+        completionHandler()
+      }
     })
   }
 

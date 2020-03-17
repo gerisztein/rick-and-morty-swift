@@ -48,9 +48,7 @@ class ListViewController: UIViewController {
   
   func loadData() {
     viewModel.getCharacterList {
-      DispatchQueue.main.async {
-        self.tableView.reloadData()
-      }
+      self.tableView.reloadData()
     }
   }
 }
@@ -81,10 +79,9 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITabl
   
   func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
     if indexPaths.contains(where: isLoadingCell) {
+      print("load more")
       viewModel.getCharacterList {
-        DispatchQueue.main.async {
-          self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
       }
     }
   }
@@ -92,6 +89,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITabl
 
 private extension ListViewController {
   func isLoadingCell(for indexPath: IndexPath) -> Bool {
-    return (indexPath.row) >= viewModel.currentCount - 1
+    return (indexPath.row) >= viewModel.characterList.count - 1
   }
 }
