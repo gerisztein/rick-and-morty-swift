@@ -23,7 +23,6 @@ class CharacterViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     updateUI()
   }
 
@@ -37,7 +36,6 @@ class CharacterViewController: UIViewController {
   }
   
   func updateUI() {
-    navigationController?.navigationBar.tintColor = .black
     nameLabel.text = character?.name
     statusLabel.text = character?.status
     speciesLabel.text = character?.species
@@ -45,6 +43,8 @@ class CharacterViewController: UIViewController {
     originLabel.text = character?.origin?.name
     locationLabel.text = character?.location?.name
     imageView.sd_setImage(with: URL(string: character!.image), placeholderImage: UIImage(named: "placeholder"))
+    
+    navigationController?.navigationBar.tintColor = .black
   }
 
 }

@@ -18,7 +18,7 @@ class ListViewModel {
   }
 
   func getCharacterList(_ completionHandler: @escaping () -> Void) {
-    networkManager.fetchData(page: currentPage, completionHandler: { (characters) in
+    networkManager.fetchData(page: currentPage, completionHandler: { characters in
       self.characterList.append(contentsOf: characters)
       self.currentPage += 1
       

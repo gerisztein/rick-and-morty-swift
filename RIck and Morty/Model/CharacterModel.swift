@@ -45,14 +45,14 @@ struct LocationModel: Decodable {
   let url: String
 }
 
-struct Results: Decodable {
-  let info: InfoModel
-  let results: [CharacterModel]
-}
-
 struct InfoModel: Decodable {
   let count: Int
   let pages: Int
   let next: String?
   let previous: String?
+}
+
+struct Results: Decodable {
+  let info: InfoModel
+  let results: [CharacterModel]
 }

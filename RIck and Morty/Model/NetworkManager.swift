@@ -10,18 +10,18 @@ import Foundation
 
 class NetworkManager {
   
-//  var characters = [CharacterModel]()
   var hasNextPage: Bool = true
   
   func fetchData(page: Int, completionHandler: @escaping (_ response: [CharacterModel]) -> Void) {
     
-    if (!hasNextPage) { return }
+    guard hasNextPage else { return }
     
     let url = URL(string: "https://rickandmortyapi.com/api/character/?page=\(page)")!
     
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
       if let error = error {
         print("Error fetching data. \(error)")
+        
         return
       }
       
@@ -32,9 +32,7 @@ class NetworkManager {
           let results = try decoder.decode(Results.self, from: data)
           self.hasNextPage = results.info.next != ""
           
-          DispatchQueue.main.async {
-            completionHandler(results.results)
-          }
+          completionHandler(results.results)
         } catch {
           print("Error decoding data. \(error)")
         }

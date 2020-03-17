@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
+class ListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -17,20 +17,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.register(UINib(nibName: "CharacterTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-    tableView.dataSource = self
-    tableView.delegate = self
-    tableView.prefetchDataSource = self
-    tableView.rowHeight = 70
-    title = "Rick and Morty"
     
-    navigationItem.titleView?.tintColor = .black
-    
-    viewModel.getCharacterList {
-      DispatchQueue.main.async {
-        self.tableView.reloadData()
-      }
-    }
+    setupTableView()
+    setupNavigation()
+    loadData()
   }
   
   init(viewModel: ListViewModel) {
@@ -42,6 +32,30 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     fatalError("init(coder:) has not been implemented")
   }
   
+  func setupNavigation() {
+    title = "Rick and Morty"
+    
+    navigationItem.titleView?.tintColor = .black
+  }
+  
+  func setupTableView() {
+    tableView.register(UINib(nibName: "CharacterTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+    tableView.dataSource = self
+    tableView.delegate = self
+    tableView.prefetchDataSource = self
+    tableView.rowHeight = 70
+  }
+  
+  func loadData() {
+    viewModel.getCharacterList {
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+      }
+    }
+  }
+}
+
+extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.characterList.count
   }
@@ -74,18 +88,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
       }
     }
   }
-
 }
 
 private extension ListViewController {
   func isLoadingCell(for indexPath: IndexPath) -> Bool {
     return (indexPath.row) >= viewModel.currentCount - 1
-  }
-
-  func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
-    let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
-    let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
-    
-    return Array(indexPathsIntersection)
   }
 }
