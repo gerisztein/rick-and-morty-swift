@@ -44,7 +44,7 @@ class CharacterViewController: UIViewController {
     locationLabel.text = character?.location?.name
     imageView.sd_setImage(with: URL(string: character!.image), placeholderImage: UIImage(named: "placeholder"))
     
-    navigationController?.navigationBar.tintColor = .black
+    navigationController?.navigationBar.tintColor = .white
   }
 
 }

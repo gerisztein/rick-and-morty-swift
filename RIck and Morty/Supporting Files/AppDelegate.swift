@@ -18,10 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let viewModel = ListViewModel()
     let rootViewController = ListViewController(viewModel: viewModel)
     let navigationController = UINavigationController(rootViewController: rootViewController)
-    let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     
-    navigationController.navigationBar.titleTextAttributes = textAttributes
-    navigationController.navigationBar.barTintColor = .systemGray
+    navigationController.navigationBar.barTintColor = .systemBlue
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
