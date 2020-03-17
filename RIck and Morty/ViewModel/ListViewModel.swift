@@ -10,17 +10,21 @@ import Foundation
 
 class ListViewModel {
 
-  var characterList: [CharacterCellViewModel] = []
+  private (set) var dataSource: [CharacterCellViewModel] = []
+  private var characters: [CharacterModel] = []
   private var currentPage = 1
+  private let router: ListRouter
   private let networkManager: NetworkManager
 
-  init(networkManager: NetworkManager = NetworkManager()) {
+  init(router: ListRouter, networkManager: NetworkManager = NetworkManager()) {
+    self.router = router
     self.networkManager = networkManager
   }
 
   func getCharacterList(_ completionHandler: @escaping () -> Void) {
     networkManager.fetchData(page: currentPage, completionHandler: { characters in
-      self.characterList.append(contentsOf: characters.map(CharacterConverter.convert))
+      self.characters += characters
+      self.dataSource += characters.map(CharacterConverter.convert)
       self.currentPage += 1
 
       DispatchQueue.main.async {
@@ -29,4 +33,7 @@ class ListViewModel {
     })
   }
 
+  func didSelect(row: Int) {
+    router.show(character: characters[row])
+  }
 }

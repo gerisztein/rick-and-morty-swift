@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FE9FEB224210A4700125E32 /* CharacterConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9FEB124210A4700125E32 /* CharacterConverter.swift */; };
+		3FE9FEB42421269A00125E32 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9FEB32421269A00125E32 /* ListRouter.swift */; };
 		98905A0C2416FE4400D8EE5E /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98905A0A2416FE4400D8EE5E /* CharacterViewController.swift */; };
 		98905A0D2416FE4400D8EE5E /* CharacterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98905A0B2416FE4400D8EE5E /* CharacterViewController.xib */; };
 		98905A112417871700D8EE5E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98905A102417871700D8EE5E /* NetworkManager.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		3FE9FEB124210A4700125E32 /* CharacterConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterConverter.swift; sourceTree = "<group>"; };
+		3FE9FEB32421269A00125E32 /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		98905A0A2416FE4400D8EE5E /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		98905A0B2416FE4400D8EE5E /* CharacterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterViewController.xib; sourceTree = "<group>"; };
 		98905A102417871700D8EE5E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				98EEE5D22416D8D10018FEEB /* Resources */,
 				98EEE5D12416D8960018FEEB /* Supporting Files */,
 				98EEE5C12416D59B0018FEEB /* LaunchScreen.storyboard */,
+				3FE9FEB32421269A00125E32 /* ListRouter.swift */,
 			);
 			path = "RIck and Morty";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				98905A0C2416FE4400D8EE5E /* CharacterViewController.swift in Sources */,
 				98EEE5D62416EC280018FEEB /* ListViewModel.swift in Sources */,
 				98EEE5D42416D91A0018FEEB /* CharacterModel.swift in Sources */,
+				3FE9FEB42421269A00125E32 /* ListRouter.swift in Sources */,
 				98905A112417871700D8EE5E /* NetworkManager.swift in Sources */,
 				98EEE5D92416F18A0018FEEB /* CharacterTableViewCell.swift in Sources */,
 				98EEE5B72416D59A0018FEEB /* AppDelegate.swift in Sources */,

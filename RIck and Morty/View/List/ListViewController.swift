@@ -55,13 +55,13 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.characterList.count
+    return viewModel.dataSource.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CharacterTableViewCell
     
-    let character = viewModel.characterList[indexPath.row]
+    let character = viewModel.dataSource[indexPath.row]
     cell.characterNameLabel.text = character.name
     cell.characterTypeLabel.text = character.type
     cell.characterImage.sd_setImage(with: character.imageUrl)
@@ -70,11 +70,8 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITabl
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    let character = viewModel.characterList[indexPath.row]
-//    let viewController = CharacterViewController(character: character)
-//    
-//    tableView.deselectRow(at: indexPath, animated: true)
-//    navigationController?.pushViewController(viewController, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
+    viewModel.didSelect(row: indexPath.row)
   }
   
   func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
@@ -89,6 +86,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITabl
 
 private extension ListViewController {
   func isLoadingCell(for indexPath: IndexPath) -> Bool {
-    return (indexPath.row) >= viewModel.characterList.count - 1
+    return (indexPath.row) >= viewModel.dataSource.count - 1
   }
 }
