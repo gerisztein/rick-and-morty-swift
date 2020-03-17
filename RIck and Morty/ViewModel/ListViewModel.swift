@@ -10,7 +10,7 @@ import Foundation
 
 class ListViewModel {
 
-  var characterList: [CharacterModel] = []
+  var characterList: [CharacterCellViewModel] = []
   private var currentPage = 1
   private let networkManager: NetworkManager
 
@@ -20,7 +20,7 @@ class ListViewModel {
 
   func getCharacterList(_ completionHandler: @escaping () -> Void) {
     networkManager.fetchData(page: currentPage, completionHandler: { characters in
-      self.characterList.append(contentsOf: characters)
+      self.characterList.append(contentsOf: characters.map(CharacterConverter.convert))
       self.currentPage += 1
 
       DispatchQueue.main.async {

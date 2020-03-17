@@ -63,18 +63,18 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITabl
     
     let character = viewModel.characterList[indexPath.row]
     cell.characterNameLabel.text = character.name
-    cell.characterTypeLabel.text = "\(character.species) from \(character.origin?.name ?? "unknown location")"
-    cell.characterImage.sd_setImage(with: URL(string: character.image), placeholderImage: UIImage(named: "placeholder"))
+    cell.characterTypeLabel.text = character.type
+    cell.characterImage.sd_setImage(with: character.imageUrl)
     
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let character = viewModel.characterList[indexPath.row]
-    let viewController = CharacterViewController(character: character)
-    
-    tableView.deselectRow(at: indexPath, animated: true)
-    navigationController?.pushViewController(viewController, animated: true)
+//    let character = viewModel.characterList[indexPath.row]
+//    let viewController = CharacterViewController(character: character)
+//    
+//    tableView.deselectRow(at: indexPath, animated: true)
+//    navigationController?.pushViewController(viewController, animated: true)
   }
   
   func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {

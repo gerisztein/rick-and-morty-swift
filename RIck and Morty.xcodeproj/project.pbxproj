@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FE9FEB224210A4700125E32 /* CharacterConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9FEB124210A4700125E32 /* CharacterConverter.swift */; };
 		98905A0C2416FE4400D8EE5E /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98905A0A2416FE4400D8EE5E /* CharacterViewController.swift */; };
 		98905A0D2416FE4400D8EE5E /* CharacterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98905A0B2416FE4400D8EE5E /* CharacterViewController.xib */; };
 		98905A112417871700D8EE5E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98905A102417871700D8EE5E /* NetworkManager.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3FE9FEB124210A4700125E32 /* CharacterConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterConverter.swift; sourceTree = "<group>"; };
 		98905A0A2416FE4400D8EE5E /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		98905A0B2416FE4400D8EE5E /* CharacterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterViewController.xib; sourceTree = "<group>"; };
 		98905A102417871700D8EE5E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				98EEE5D32416D91A0018FEEB /* CharacterModel.swift */,
 				98905A102417871700D8EE5E /* NetworkManager.swift */,
+				3FE9FEB124210A4700125E32 /* CharacterConverter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE9FEB224210A4700125E32 /* CharacterConverter.swift in Sources */,
 				98905A0C2416FE4400D8EE5E /* CharacterViewController.swift in Sources */,
 				98EEE5D62416EC280018FEEB /* ListViewModel.swift in Sources */,
 				98EEE5D42416D91A0018FEEB /* CharacterModel.swift in Sources */,
