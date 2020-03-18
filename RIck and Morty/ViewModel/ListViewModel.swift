@@ -16,18 +16,34 @@ class ListViewModel {
   private let router: ListRouter
   private let networkManager: NetworkManager
 
+  weak var view: ListViewController?
+
   init(router: ListRouter, networkManager: NetworkManager = NetworkManager()) {
     self.router = router
     self.networkManager = networkManager
   }
 
-  func getCharacterList(_ completionHandler: @escaping () -> Void) {
+  func viewDidLoad() {
+    getCharacterList()
+  }
+
+  func prefetchRows(for indexPaths: [IndexPath]) {
+    if indexPaths.contains(where: isLoadingCell) {
+      getCharacterList()
+    }
+  }
+
+  private func isLoadingCell(for indexPath: IndexPath) -> Bool {
+    return (indexPath.row) >= dataSource.count - 1
+  }
+
+  private func getCharacterList() {
     networkManager.fetchData(page: currentPage, completionHandler: { characters in
       self.characters += characters
       self.dataSource += characters.map(CharacterConverter.convertToCell)
       self.currentPage += 1
 
-      completionHandler()
+      self.view?.reloadData()
     })
   }
 

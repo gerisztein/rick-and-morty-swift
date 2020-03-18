@@ -12,20 +12,20 @@ class ListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var viewModel: ListViewModel!
-  var characterList: [CharacterModel]?
+  private let viewModel: ListViewModel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setupTableView()
     setupNavigation()
-    loadData()
+    viewModel.viewDidLoad()
   }
   
   init(viewModel: ListViewModel) {
     self.viewModel = viewModel
     super.init(nibName: "ListViewController", bundle: Bundle.main)
+    self.viewModel.view = self
   }
   
   required init?(coder: NSCoder) {
@@ -45,11 +45,9 @@ class ListViewController: UIViewController {
     tableView.prefetchDataSource = self
     tableView.rowHeight = 70
   }
-  
-  func loadData() {
-    viewModel.getCharacterList {
-      self.tableView.reloadData()
-    }
+
+  func reloadData() {
+    tableView.reloadData()
   }
 }
 
@@ -75,17 +73,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITabl
   }
   
   func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-    if indexPaths.contains(where: isLoadingCell) {
-      print("load more")
-      viewModel.getCharacterList {
-        self.tableView.reloadData()
-      }
-    }
-  }
-}
-
-private extension ListViewController {
-  func isLoadingCell(for indexPath: IndexPath) -> Bool {
-    return (indexPath.row) >= viewModel.dataSource.count - 1
+    viewModel.prefetchRows(for: indexPaths)
   }
 }
