@@ -19,15 +19,15 @@ class CharacterViewController: UIViewController {
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
   
-  var character: CharacterModel?
+  private let viewModel: CharacterViewModel
   
   override func viewDidLoad() {
     super.viewDidLoad()
     updateUI()
   }
 
-  init(character: CharacterModel) {
-    self.character = character
+  init(viewModel: CharacterViewModel) {
+    self.viewModel = viewModel
     super.init(nibName: "CharacterViewController", bundle: Bundle.main)
   }
   
@@ -36,15 +36,14 @@ class CharacterViewController: UIViewController {
   }
   
   func updateUI() {
-    nameLabel.text = character?.name
-    statusLabel.text = character?.status
-    speciesLabel.text = character?.species
-    genderLabel.text = character?.gender
-    originLabel.text = character?.origin?.name
-    locationLabel.text = character?.location?.name
-    imageView.sd_setImage(with: URL(string: character!.image), placeholderImage: UIImage(named: "placeholder"))
+    nameLabel.text = viewModel.character.name
+    statusLabel.text = viewModel.character.status
+    speciesLabel.text = viewModel.character.species
+    genderLabel.text = viewModel.character.gender
+    originLabel.text = viewModel.character.origin
+    locationLabel.text = viewModel.character.location
+    imageView.sd_setImage(with: viewModel.character.imageUrl, placeholderImage: UIImage(named: "placeholder"))
     
     navigationController?.navigationBar.tintColor = .white
   }
-
 }

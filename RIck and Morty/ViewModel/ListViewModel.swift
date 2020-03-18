@@ -9,21 +9,29 @@
 import Foundation
 
 class ListViewModel {
-  
-  var networkManager = NetworkManager()
-  var characterList: [CharacterModel] = [CharacterModel]()
-  var currentPage = 1
-  var currentCount: Int {
-    return characterList.count
+
+  private (set) var dataSource: [CharacterCellViewState] = []
+  private var characters: [CharacterModel] = []
+  private var currentPage = 1
+  private let router: ListRouter
+  private let networkManager: NetworkManager
+
+  init(router: ListRouter, networkManager: NetworkManager = NetworkManager()) {
+    self.router = router
+    self.networkManager = networkManager
   }
 
   func getCharacterList(_ completionHandler: @escaping () -> Void) {
     networkManager.fetchData(page: currentPage, completionHandler: { characters in
-      self.characterList.append(contentsOf: characters)
+      self.characters += characters
+      self.dataSource += characters.map(CharacterConverter.convertToCell)
       self.currentPage += 1
-      
+
       completionHandler()
     })
   }
 
+  func didSelect(row: Int) {
+    router.show(character: characters[row])
+  }
 }

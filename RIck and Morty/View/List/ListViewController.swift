@@ -48,43 +48,37 @@ class ListViewController: UIViewController {
   
   func loadData() {
     viewModel.getCharacterList {
-      DispatchQueue.main.async {
-        self.tableView.reloadData()
-      }
+      self.tableView.reloadData()
     }
   }
 }
 
 extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.characterList.count
+    return viewModel.dataSource.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CharacterTableViewCell
     
-    let character = viewModel.characterList[indexPath.row]
+    let character = viewModel.dataSource[indexPath.row]
     cell.characterNameLabel.text = character.name
-    cell.characterTypeLabel.text = "\(character.species) from \(character.origin?.name ?? "unknown location")"
-    cell.characterImage.sd_setImage(with: URL(string: character.image), placeholderImage: UIImage(named: "placeholder"))
+    cell.characterTypeLabel.text = character.type
+    cell.characterImage.sd_setImage(with: character.imageUrl)
     
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let character = viewModel.characterList[indexPath.row]
-    let viewController = CharacterViewController(character: character)
-    
     tableView.deselectRow(at: indexPath, animated: true)
-    navigationController?.pushViewController(viewController, animated: true)
+    viewModel.didSelect(row: indexPath.row)
   }
   
   func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
     if indexPaths.contains(where: isLoadingCell) {
+      print("load more")
       viewModel.getCharacterList {
-        DispatchQueue.main.async {
-          self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
       }
     }
   }
@@ -92,6 +86,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITabl
 
 private extension ListViewController {
   func isLoadingCell(for indexPath: IndexPath) -> Bool {
-    return (indexPath.row) >= viewModel.currentCount - 1
+    return (indexPath.row) >= viewModel.dataSource.count - 1
   }
 }
