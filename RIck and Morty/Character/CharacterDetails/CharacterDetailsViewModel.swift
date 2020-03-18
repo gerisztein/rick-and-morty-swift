@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class CharacterViewModel {
+final class CharacterDetailsViewModel {
   let character: CharacterDetailsViewState
 
   init(character: CharacterModel) {

@@ -8,17 +8,17 @@
 
 import Foundation
 
-class ListViewModel {
+class CharacterListViewModel {
 
   private (set) var dataSource: [CharacterCellViewState] = []
   private var characters: [CharacterModel] = []
   private var currentPage = 1
-  private let router: ListRouter
+  private let router: CharacterRouter
   private let networkManager: NetworkManager
 
-  weak var view: ListViewController?
+  weak var view: CharacterListViewController?
 
-  init(router: ListRouter, networkManager: NetworkManager = NetworkManager()) {
+  init(router: CharacterRouter, networkManager: NetworkManager = NetworkManager()) {
     self.router = router
     self.networkManager = networkManager
   }

@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class CharacterViewController: UIViewController {
+class CharacterDetailsViewController: UIViewController {
   
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var statusLabel: UILabel!
@@ -19,16 +19,16 @@ class CharacterViewController: UIViewController {
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
   
-  private let viewModel: CharacterViewModel
+  private let viewModel: CharacterDetailsViewModel
   
   override func viewDidLoad() {
     super.viewDidLoad()
     updateUI()
   }
 
-  init(viewModel: CharacterViewModel) {
+  init(viewModel: CharacterDetailsViewModel) {
     self.viewModel = viewModel
-    super.init(nibName: "CharacterViewController", bundle: Bundle.main)
+    super.init(nibName: "CharacterDetailsViewController", bundle: Bundle.main)
   }
   
   required init?(coder: NSCoder) {

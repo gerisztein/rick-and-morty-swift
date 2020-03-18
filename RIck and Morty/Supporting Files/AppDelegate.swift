@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     let navigationController = UINavigationController()
-    let router = ListRouter(navigationController: navigationController)
-    let viewModel = ListViewModel(router: router)
-    let rootViewController = ListViewController(viewModel: viewModel)
+    let router = CharacterRouter(navigationController: navigationController)
+    let viewModel = CharacterListViewModel(router: router)
+    let rootViewController = CharacterListViewController(viewModel: viewModel)
     navigationController.viewControllers = [rootViewController]
     
-    navigationController.navigationBar.barTintColor = .systemBlue
+    navigationController.navigationBar.barTintColor = .systemGray6
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = navigationController
     window?.makeKeyAndVisible()

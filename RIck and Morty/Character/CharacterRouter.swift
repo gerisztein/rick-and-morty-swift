@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ListRouter {
+final class CharacterRouter {
   private weak var navigationController: UINavigationController?
 
   init(navigationController: UINavigationController) {
@@ -16,8 +16,9 @@ final class ListRouter {
   }
 
   func show(character: CharacterModel) {
-    let viewModel = CharacterViewModel(character: character)
-    let viewController = CharacterViewController(viewModel: viewModel)
+    let viewModel = CharacterDetailsViewModel(character: character)
+    let viewController = CharacterDetailsViewController(viewModel: viewModel)
+    
     navigationController?.pushViewController(viewController, animated: true)
   }
 }

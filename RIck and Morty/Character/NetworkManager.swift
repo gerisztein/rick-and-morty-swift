@@ -13,11 +13,10 @@ class NetworkManager {
   var hasNextPage: Bool = true
   
   func fetchData(page: Int, completionHandler: @escaping (_ response: [CharacterModel]) -> Void) {
-    
     guard hasNextPage else { return }
     
-    let url = URL(string: "https://rickandmortyapi.com/api/character/?page=\(page)")!
-    
+    let baseUrl = "https://rickandmortyapi.com/api/character/"
+    let url = URL(string: "\(baseUrl)/?page=\(page)")!
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
       if let error = error {
         print("Error fetching data. \(error)")

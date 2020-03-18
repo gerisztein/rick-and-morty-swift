@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharacterTableViewCell: UITableViewCell {
+class CharacterListTableViewCell: UITableViewCell {
   
   @IBOutlet weak var characterNameLabel: UILabel!
   @IBOutlet weak var characterTypeLabel: UILabel!
@@ -16,7 +16,10 @@ class CharacterTableViewCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-
+    setupImage()
+  }
+  
+  func setupImage() {
     characterImage.layer.cornerRadius = characterImage.frame.height / 2
     characterImage.clipsToBounds = true
   }

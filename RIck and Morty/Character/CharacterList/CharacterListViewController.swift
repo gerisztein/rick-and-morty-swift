@@ -8,23 +8,23 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+class CharacterListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  private let viewModel: ListViewModel!
+  private let viewModel: CharacterListViewModel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    viewModel.viewDidLoad()
     
     setupTableView()
     setupNavigation()
-    viewModel.viewDidLoad()
   }
   
-  init(viewModel: ListViewModel) {
+  init(viewModel: CharacterListViewModel) {
     self.viewModel = viewModel
-    super.init(nibName: "ListViewController", bundle: Bundle.main)
+    super.init(nibName: "CharacterListViewController", bundle: Bundle.main)
     self.viewModel.view = self
   }
   
@@ -39,7 +39,7 @@ class ListViewController: UIViewController {
   }
   
   func setupTableView() {
-    tableView.register(UINib(nibName: "CharacterTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+    tableView.register(UINib(nibName: "CharacterListTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
     tableView.dataSource = self
     tableView.delegate = self
     tableView.prefetchDataSource = self
@@ -51,13 +51,13 @@ class ListViewController: UIViewController {
   }
 }
 
-extension ListViewController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
+extension CharacterListViewController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.dataSource.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CharacterTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CharacterListTableViewCell
     
     let character = viewModel.dataSource[indexPath.row]
     cell.characterNameLabel.text = character.name

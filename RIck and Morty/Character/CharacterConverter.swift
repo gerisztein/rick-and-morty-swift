@@ -26,7 +26,9 @@ struct CharacterDetailsViewState {
 
 final class CharacterConverter {
   static func convertToCell(from model: CharacterModel) -> CharacterCellViewState {
-    let type = "\(model.species) from \(model.origin?.name ?? "unknown location")"
+    let origin = model.origin?.name ?? "unknown location"
+    let type = "\(model.species) from \(origin)"
+    
     return CharacterCellViewState(name: model.name, type: type, imageUrl: URL(string: model.image))
   }
 

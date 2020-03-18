@@ -23,7 +23,6 @@ struct CharacterModel: Decodable {
   let created: String
   
   init(id: Int, name: String, status: String, species: String, type: String, gender: String, origin: LocationModel?, location: LocationModel?, image: String, episode: [String], url: String, created: String) {
-    
     self.id = id
     self.name = name
     self.status = status
@@ -36,7 +35,6 @@ struct CharacterModel: Decodable {
     self.created = created
     self.origin = origin
     self.location = location
-    
   }
 }
 
