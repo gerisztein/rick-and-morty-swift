@@ -43,7 +43,9 @@ class CharacterListViewController: UIViewController {
     tableView.dataSource = self
     tableView.delegate = self
     tableView.prefetchDataSource = self
-    tableView.rowHeight = 70
+    tableView.rowHeight = 80
+    tableView.separatorStyle = .singleLine
+    tableView.separatorColor = .lightGray
   }
 
   func reloadData() {

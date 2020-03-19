@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FE9FEB224210A4700125E32 /* CharacterConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9FEB124210A4700125E32 /* CharacterConverter.swift */; };
-		3FE9FEB42421269A00125E32 /* CharacterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9FEB32421269A00125E32 /* CharacterRouter.swift */; };
+		3FE9FEB42421269A00125E32 /* CharacterListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9FEB32421269A00125E32 /* CharacterListRouter.swift */; };
 		3FE9FEB624212B3F00125E32 /* CharacterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9FEB524212B3F00125E32 /* CharacterDetailsViewModel.swift */; };
 		98905A0C2416FE4400D8EE5E /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98905A0A2416FE4400D8EE5E /* CharacterDetailsViewController.swift */; };
 		98905A0D2416FE4400D8EE5E /* CharacterDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98905A0B2416FE4400D8EE5E /* CharacterDetailsViewController.xib */; };
@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		3FE9FEB124210A4700125E32 /* CharacterConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterConverter.swift; sourceTree = "<group>"; };
-		3FE9FEB32421269A00125E32 /* CharacterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRouter.swift; sourceTree = "<group>"; };
+		3FE9FEB32421269A00125E32 /* CharacterListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRouter.swift; sourceTree = "<group>"; };
 		3FE9FEB524212B3F00125E32 /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
 		98905A0A2416FE4400D8EE5E /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 		98905A0B2416FE4400D8EE5E /* CharacterDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailsViewController.xib; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 			children = (
 				3FE9FEB124210A4700125E32 /* CharacterConverter.swift */,
 				98EEE5D32416D91A0018FEEB /* CharacterModel.swift */,
-				3FE9FEB32421269A00125E32 /* CharacterRouter.swift */,
 				98905A102417871700D8EE5E /* NetworkManager.swift */,
 				98E2C96F2422454E0051F370 /* CharacterDetails */,
 				98E2C96E242245470051F370 /* CharacterList */,
@@ -104,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				98EEE5D52416EC280018FEEB /* CharacterListViewModel.swift */,
+				3FE9FEB32421269A00125E32 /* CharacterListRouter.swift */,
 				98EEE5CA2416D8080018FEEB /* CharacterListViewController.swift */,
 				98EEE5D72416F18A0018FEEB /* CharacterListTableViewCell.swift */,
 				98EEE5CB2416D8080018FEEB /* CharacterListViewController.xib */,
@@ -268,7 +268,7 @@
 				98905A0C2416FE4400D8EE5E /* CharacterDetailsViewController.swift in Sources */,
 				98EEE5D62416EC280018FEEB /* CharacterListViewModel.swift in Sources */,
 				98EEE5D42416D91A0018FEEB /* CharacterModel.swift in Sources */,
-				3FE9FEB42421269A00125E32 /* CharacterRouter.swift in Sources */,
+				3FE9FEB42421269A00125E32 /* CharacterListRouter.swift in Sources */,
 				98905A112417871700D8EE5E /* NetworkManager.swift in Sources */,
 				3FE9FEB624212B3F00125E32 /* CharacterDetailsViewModel.swift in Sources */,
 				98EEE5D92416F18A0018FEEB /* CharacterListTableViewCell.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CharacterRouter {
+final class CharacterListRouter {
   private weak var navigationController: UINavigationController?
 
   init(navigationController: UINavigationController) {
