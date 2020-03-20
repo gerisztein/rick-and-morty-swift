@@ -19,9 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let router = CharacterListRouter(navigationController: navigationController)
     let viewModel = CharacterListViewModel(router: router)
     let rootViewController = CharacterListViewController(viewModel: viewModel)
-    navigationController.viewControllers = [rootViewController]
     
+    navigationController.viewControllers = [rootViewController]
     navigationController.navigationBar.barTintColor = .lightGray
+    
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = navigationController
     window?.makeKeyAndVisible()

@@ -36,6 +36,7 @@ class CharacterListViewController: UIViewController {
     title = "Rick and Morty"
     
     navigationItem.titleView?.tintColor = .black
+//    self.view.backgroundColor = .white
   }
   
   func setupTableView() {

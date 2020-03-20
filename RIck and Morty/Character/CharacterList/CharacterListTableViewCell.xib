@@ -9,26 +9,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="CharacterListTableViewCell" customModule="RIck_and_Morty" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="CharacterListTableViewCell" customModule="RIck_and_Morty" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="293" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="E7x-RQ-l4R">
-                        <rect key="frame" x="90" y="21.5" width="116" height="37"/>
+                        <rect key="frame" x="90" y="21.5" width="198" height="37"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rick Sanchez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRa-gB-nzr">
-                                <rect key="frame" x="0.0" y="0.0" width="116" height="21.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="198" height="21.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Humano" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnS-CD-kqt">
-                                <rect key="frame" x="0.0" y="22.5" width="116" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="HumanoHumanoHumanoHumanoHumanoHumano" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnS-CD-kqt">
+                                <rect key="frame" x="0.0" y="22.5" width="198" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -40,10 +40,10 @@
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="E7x-RQ-l4R" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0do-H4-x3y"/>
                     <constraint firstItem="E7x-RQ-l4R" firstAttribute="leading" secondItem="PmI-RW-HpD" secondAttribute="trailing" constant="15" id="2at-PR-XB4"/>
+                    <constraint firstAttribute="trailing" secondItem="E7x-RQ-l4R" secondAttribute="trailing" constant="5" id="8V4-mg-fX8"/>
                     <constraint firstItem="PmI-RW-HpD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="GFw-HY-Eqi"/>
                     <constraint firstAttribute="bottom" secondItem="PmI-RW-HpD" secondAttribute="bottom" constant="10" id="iQc-Gy-7E9"/>
                     <constraint firstItem="PmI-RW-HpD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="plw-U5-p86"/>
